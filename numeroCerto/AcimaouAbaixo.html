@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Adivinhação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #333;
+            color: #faebd7;
+        }
+
+        h1 {
+            color: #faebd7;
+        }
+
+        button {
+            border-radius: 10px;
+            height: 35px;
+            width: 100px;
+            background-color: #7bbbe2;
+            font-size: 1.3rem;
+
+        }
+
+        input {
+            border-radius: 10px;
+            height: 35px;
+            width: 100px;
+            background-color: #7bbbe2;
+            font-size: 1.3rem;
+            border: solid 2px
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>- Testando sua sotrte -</h1>
+    <p>Foi sorteado um núemro entre 1 e 100, digite e tente adivinhar:</p>
+    <input type="number" id="adivinha" min="1" max="100">
+    <button onclick="numAleatorio()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        const numAleatorioLaco = Math.floor(Math.random() * 100) + 1;
+        let tentativas = 1
+        
+        function numAleatorio() {
+            const tentativa = parseInt(document.getElementById('adivinha').value);
+            const exibirResultado = document.getElementById('resultado');
+        
+        
+            if (tentativa > numAleatorioLaco) {
+                exibirResultado.textContent = 'O número é mais alto sorteado.';
+                tentativas++
+        
+            } else if (tentativa < numAleatorioLaco) {
+                exibirResultado.textContent = 'O número é mais baixo sorteado.';
+                tentativas++
+        
+            } else {
+                exibirResultado.textContent = `Parabéns! Você acertou o número é ${numAleatorioLaco}. E o número de tentativas foi ${tentativas}`;
+                laco = false
+            }
+        }
+        
+        
+        </script>
+
+
+</body>
+
+</html>
